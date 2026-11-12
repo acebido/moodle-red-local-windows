@@ -123,6 +123,17 @@ Get-ChildItem Cert:\LocalMachine\My | Where-Object FriendlyName -eq 'Moodle red 
 Moodle vuelve a **https://localhost** (solo este ordenador), quita la regla del cortafuegos y los
 `.cer` de la carpeta. En los otros equipos puedes borrar el certificado que instalaste.
 
+## ¿Y abrir los puertos del router para entrar desde internet?
+
+No lo recomendamos para un Moodle de pruebas en casa o en el aula. En cuanto un servidor web está en
+internet llegan bots, en horas, que prueban contraseñas y buscan fallos sin actualizar. Además, quien
+entrara en ese ordenador estaría dentro de tu red. El certificado de aquí tampoco sirve desde fuera.
+
+Para entrar desde fuera **sin abrir ningún puerto**: **Tailscale** (gratis, solo entra quien invites) o
+**Cloudflare Tunnel** (gratis, con un dominio). Para alumnado de verdad, un alojamiento o un servidor de
+Moodle. Si aun así lo abres: solo los puertos 80 y 443 (nunca 3306, 445 ni 3389), MFA en Moodle, todo
+actualizado y un ordenador dedicado con copias de seguridad. Más detalle en el capítulo 7 de la guía.
+
 ## ¿Ordenador compartido?
 
 Si en el ordenador con Moodle entran otras personas con su propia cuenta de Windows, protégelo con
